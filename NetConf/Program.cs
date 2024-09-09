@@ -1,6 +1,5 @@
 using NetConf.ConfClasses;
 using NetConf.Services;
-using System.Data.Common;
 
 var builder = WebApplication.CreateBuilder(args);
 
