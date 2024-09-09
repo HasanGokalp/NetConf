@@ -12,7 +12,7 @@ builder.Services.AddSwaggerGen();
 
 builder.Services.AddTransient<TennacyService>();
 
-//Configure appsettings.json
+//Configure appsettings.json IOptions
 builder.Services.Configure<DbSettings>(builder.Configuration.GetSection("DbSettings"));
 
 //more json file
