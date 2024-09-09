@@ -19,11 +19,14 @@ namespace NetConf.Controllers
 
         private readonly TennacyService _tennacyService;
 
-        public WeatherForecastController(ILogger<WeatherForecastController> logger, IConfiguration configuration, TennacyService tennacyService)
+        private readonly ExampleServices _exampleServices;
+
+        public WeatherForecastController(ILogger<WeatherForecastController> logger, IConfiguration configuration, TennacyService tennacyService, ExampleServices exampleServices)
         {
             _tennacyService = tennacyService;
             _logger = logger;
             _configuration = configuration;
+            _exampleServices = exampleServices;
         }
 
         [HttpGet(Name = "GetWeatherForecast")]
@@ -34,6 +37,7 @@ namespace NetConf.Controllers
 
             var deneme2 = _tennacyService.GetConnectionString();
 
+            var deneme3 = _exampleServices.GetHasan();
 
 
             return Enumerable.Range(1, 5).Select(index => new WeatherForecast

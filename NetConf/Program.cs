@@ -11,16 +11,29 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 builder.Services.AddTransient<TennacyService>();
+builder.Services.AddTransient<ExampleServices>();
 
 //Configure appsettings.json IOptions
 builder.Services.Configure<DbSettings>(builder.Configuration.GetSection("DbSettings"));
+builder.Services.Configure<ExampleConf>(builder.Configuration.GetSection("ExampleConf"));
 
 //more json file
 //IConfiguration configuration = new ConfigurationBuilder()
 //            .SetBasePath(Directory.GetCurrentDirectory())
 //            .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
 // OR
-//builder.Configuration.AddJsonFile("appsettings.json", optional: false, reloadOnChange: true);
+
+builder.Configuration.AddJsonFile("example.json", optional: false, reloadOnChange: true);
+
+//// Use ConfigurationBuilder to add both JSON files
+//var configuration = new ConfigurationBuilder()
+//    .SetBasePath(Directory.GetCurrentDirectory())
+//    .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
+//    .AddJsonFile("example.json", optional: false, reloadOnChange: true)
+//    .Build();
+
+//configuration.GetSection("DbSettings").Bind(builder.Configuration.GetSection("DbSettings"));
+//configuration.GetSection("ExampleConf").Bind(builder.Configuration.GetSection("ExampleConf"));
 
 var app = builder.Build();
 
