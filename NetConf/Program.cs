@@ -14,6 +14,7 @@ builder.Services.AddTransient<TennacyService>();
 builder.Services.AddTransient<ExampleServices>();
 
 //Configure appsettings.json IOptions
+//Class ve json dosyasý ayný isimde olmalý ayný zamanda property isimleri de ayný olmalý
 builder.Services.Configure<DbSettings>(builder.Configuration.GetSection("DbSettings"));
 builder.Services.Configure<ExampleConf>(builder.Configuration.GetSection("ExampleConf"));
 
