@@ -14,6 +14,11 @@ builder.Services.AddTransient<TennacyService>();
 
 builder.Services.Configure<DbSettings>(builder.Configuration.GetSection("DbSettings"));
 
+//more json file
+//var configuration = new ConfigurationBuilder()
+//            .SetBasePath(Directory.GetCurrentDirectory())
+//            .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
